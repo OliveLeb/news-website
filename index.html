@@ -4,19 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
+
   <body>
     <header>
-      <h1>Direct News</h1>
+      <div class="nav-brand">
+        <h1><a href="">Direct News</a></h1>
+      </div>
       <nav>
-        <div class="menu"></div>
+        <div class="menu-btn"></div>
         <div class="list-menu">
           <ul>
-            <li>Categorie 1</li>
-            <li>Categorie 2</li>
+            <li><a href="#">Categorie 1</a></li>
+            <li><a href="#">Categorie 2</a></li>
           </ul>
-          <form action="" class="newsletter">
+          <form action="" class="newsletter-mobile">
             <label for="email">Newsletter</label>
             <input
               type="email"
@@ -29,11 +37,36 @@
         </div>
       </nav>
     </header>
+
     <main>
       <section></section>
-      <aside></aside>
+      <aside>
+        <form action="" class="newsletter-desktop">
+          <label for="email">Newsletter</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Votre email"
+          />
+          <button type="submit">Subscribe</button>
+        </form>
+      </aside>
     </main>
-    <footer></footer>
+
+    <footer>
+      <p>
+        Créé par
+        <a
+          href="https://cv.lebelolivier.fr"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Olivier Lebel</a
+        >
+        - 2020
+      </p>
+    </footer>
+
     <script src="js/index.js"></script>
   </body>
 </html>
