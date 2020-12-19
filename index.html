@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Direct News</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
@@ -15,14 +15,18 @@
   <body>
     <header>
       <div class="nav-brand">
-        <h1><a href="">Direct News</a></h1>
+        <h1><a href="/">Direct News</a></h1>
       </div>
       <nav>
         <div class="menu-btn"></div>
         <div class="list-menu">
           <ul>
-            <li><a href="#">Categorie 1</a></li>
-            <li><a href="#">Categorie 2</a></li>
+            <li>
+              <a href="#" id="cat1" data-ref>Categorie 1</a>
+            </li>
+            <li>
+              <a href="#" id="cat2" data-ref>Categorie 2</a>
+            </li>
           </ul>
           <form action="" class="newsletter-mobile">
             <label for="email">Newsletter</label>
@@ -38,21 +42,78 @@
       </nav>
     </header>
 
-    <main>
-      <section></section>
-      <aside>
-        <form action="" class="newsletter-desktop">
-          <label for="email">Newsletter</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Votre email"
-          />
-          <button type="submit">Subscribe</button>
-        </form>
-      </aside>
-    </main>
+    <main id="root">
+      <section id="home">
+        <section>
+          <figure class="headline">
+            <img
+              src="https://via.placeholder.com/375x250?text=A+La+Une"
+              alt=""
+            />
+            <figcaption>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </figcaption>
+          </figure>
+
+          <section class="article-list">
+            <figure class="article">
+              <figcaption>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </figcaption>
+              <img src="https://via.placeholder.com/100x100" alt="" />
+            </figure>
+            <figure class="article">
+              <figcaption>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </figcaption>
+              <img src="https://via.placeholder.com/100x100" alt="" />
+            </figure>
+            <figure class="article">
+              <figcaption>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </figcaption>
+              <img src="https://via.placeholder.com/100x100" alt="" />
+            </figure>
+            <figure class="article">
+              <figcaption>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </figcaption>
+              <img src="https://via.placeholder.com/100x100" alt="" />
+            </figure>
+            <figure class="article">
+              <figcaption>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </figcaption>
+              <img src="https://via.placeholder.com/100x100" alt="" />
+            </figure>
+            <figure class="article">
+              <figcaption>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </figcaption>
+              <img src="https://via.placeholder.com/100x100" alt="" />
+            </figure>
+          </section>
+        </section>
+        <aside>
+          <form action="" class="newsletter-desktop">
+            <label for="email">Newsletter</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Votre email"
+            />
+            <button type="submit">Subscribe</button>
+          </form>
+        </aside>
+      </section>
 
     <footer>
       <p>
@@ -65,6 +126,8 @@
         >
         - 2020
       </p>
+      <p><a href="https://newsapi.org/" target="_blank" rel="noopener noreferrer">NewsApi</a></p>
+      <p><a href="#" target="_blank" rel="noopener noreferrer">github</a></p>
     </footer>
 
     <script src="js/index.js"></script>

@@ -15,7 +15,7 @@ a {
 }
 html,
 body {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 :root {
@@ -45,13 +45,13 @@ nav {
 
 .menu-btn {
   background-image: url('../image/menu.svg');
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 }
 .list-menu {
   position: absolute;
   width: 100vw;
-  top: 35px;
+  top: 30px;
   left: calc(100% + 5px);
   transition: all 0.5s ease;
   background-color: var(--background-nav);
@@ -87,10 +87,30 @@ nav {
   width: 100px;
 }
 /**MAIN**/
-main {
+#home {
   min-height: calc(100vh - 40px);
 }
+.headline {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+}
+.headline:last-child {
+  font-size: 18px;
+  font-weight: bold;
+}
+.article {
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 10px 0;
+  border-top: 1px solid #eee;
+  padding: 5px 0;
+}
 aside {
+  display: none;
+}
+/**FOOTER**/
+footer {
   display: none;
 }
 
@@ -136,11 +156,12 @@ aside {
   }
   .list-menu li {
     margin: 0 10px;
+    padding: 10px 10px;
     width: auto;
   }
 
   /**MAIN**/
-  main {
+  #home {
     display: flex;
     margin: auto;
     width: 80%;
@@ -150,10 +171,26 @@ aside {
   }
   section {
     width: 80%;
+    margin: auto;
+  }
+  .headline figcaption {
+    margin-top: 50px;
+  }
+  .article-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .article {
+    margin: 10px;
+    flex-direction: column-reverse;
   }
   aside {
     background-color: #f5f5f5;
     width: 20%;
+    display: block;
+  }
+  /**FOOTER**/
+  footer {
     display: block;
   }
 }
