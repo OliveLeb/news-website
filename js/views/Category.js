@@ -5,7 +5,6 @@ export default class extends AbstractView{
         super();
         this.setTitle('Home');
         this.articles = articles;
-        // this.getData(articles);
     }
 
     async articleListing() {
@@ -58,9 +57,5 @@ export default class extends AbstractView{
         </section>
         `;
     };
-
-    // getData(articles) {
-    //     console.log(articles)
-    // }
 
 };

@@ -17,7 +17,7 @@ const navigateTo = url => {
 const router = async () => {
 
     const routes = [
-        {path:'/', view: Home, category:'informatique%20AND%20football'},
+        {path:'/', view: Home, category:'informatique OR football'},
         {path:'/informatique', view: Category, category:'informatique'},
         {path:'/football', view: Category, category:'football'},
         {path:'/:categorie/:id', view: Article}

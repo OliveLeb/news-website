@@ -8,7 +8,7 @@ export default class extends AbstractView{
     }
 
     async articleListing() {
-        let article;
+        let article = '';
         for(let i=1; i<11;i++){
             article += `
                 <figure class="article">
@@ -19,7 +19,6 @@ export default class extends AbstractView{
                 </figure>
             `
         };
-        console.log(this.articles)
         return article;
     }
 
