@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 li {
@@ -91,24 +91,38 @@ nav {
   min-height: calc(100vh - 40px - 57px);
 }
 .headline {
-  height: 50vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .headline-img {
-  width: 500px;
+  width: 100%;
   height: auto;
 }
-.headline:last-child {
+.headline > :last-child > h1 {
   font-size: 18px;
   font-weight: bold;
 }
+.headline > figcaption > :not(h1) {
+  color: #a6a6a6;
+}
+.headline > figcaption > :last-child {
+  display: none;
+}
 .article {
   display: flex;
-  flex-flow: row nowrap;
-  margin: 10px 0;
+  flex-wrap: nowrap;
+  flex-direction: row-reverse;
   border-top: 1px solid #eee;
-  padding: 5px 0;
+  border-right: 1px solid #eee;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px;
+}
+.article > img {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
 }
 aside {
   display: none;
@@ -118,11 +132,36 @@ footer {
   display: none;
 }
 
-/************** TABLET ********************/
+/***************** TABLET PORTRAIT *****************/
 
-@media all and (min-width: 961px) {
-  #home {
+@media all and (min-width: 480px) {
+  .headline > img {
+    width: 500px;
+  }
+}
+
+/************** TABLET LANDSCAPE ********************/
+
+@media all and (min-width: 900px) {
+  /** MAIN **/
+  #home,
+  #categories {
     width: 100%;
+  }
+  .headline {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .headline > * {
+    margin: 20px;
+  }
+  .headline > figcaption {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .headline > figcaption > :last-child {
+    display: block;
   }
 }
 
@@ -176,39 +215,44 @@ footer {
   }
 
   /**MAIN**/
-  #home {
+  #home,
+  #categories {
     display: flex;
     margin: auto;
     width: 1281px;
-    min-height: calc(100vh - 141px);
     background-color: var(--background-main);
-    margin-top: 20px;
+    padding: 20px 0;
   }
   section {
     width: 80%;
     margin: auto;
   }
-  .headline {
-    flex-direction: row;
-  }
-  .headline > * {
-    margin: 20px;
-  }
-  .headline figcaption {
-    margin-top: 50px;
-  }
-  .article-list {
+  .article-list-home {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
+  .article-list-home .article:nth-child(3n + 1) {
+    border-left: 1px solid #eee;
+  }
+  .article-list-home .article:nth-last-child(-n + 3) {
+    border-bottom: 1px solid #eee;
+  }
   .article {
-    margin: 10px;
     flex-direction: column-reverse;
+  }
+  .article :first-child {
+    align-self: flex-start;
+  }
+  .article :last-child {
+    margin-bottom: 10px;
+    margin-right: 0;
+    width: 150px;
   }
   aside {
     background-color: #f5f5f5;
     width: 20%;
     display: block;
+    padding-bottom: 20px;
   }
   /**FOOTER**/
   footer {

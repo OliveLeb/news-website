@@ -1,5 +1,6 @@
 import Home from './views/Home.js';
 import Category from './views/Category.js';
+import Article from './views/Article.js';
 import FetchData from './FetchData.js';
 
 // const getParams = match => {
@@ -17,8 +18,9 @@ const router = async () => {
 
     const routes = [
         {path:'/', view: Home, category:'informatique%20AND%20football'},
-        {path:'/categorie1', view: Category, category:'informatique'},
-        {path:'/categorie2', view: Category, category:'football'}
+        {path:'/informatique', view: Category, category:'informatique'},
+        {path:'/football', view: Category, category:'football'},
+        {path:'/:categorie/:id', view: Article}
     ];
 
     // Test each routes
@@ -38,15 +40,30 @@ const router = async () => {
             isMatch: true
         };
     }
-    // let view;
+
+    // Check unique value
+    function uniqueArticle(arr) {
+        let uniques = [];
+        let itemsFound = {};
+        for(let val of arr){
+            if(itemsFound[val.summary]){
+                continue;
+            }
+            uniques.push(val);
+            itemsFound[val.summary] = true;
+        }
+        return uniques;
+    }
+
+   
 
     FetchData(match.category)
+    //.then(articles => uniqueArticle(articles))
     .then(articles => new match.route.view(articles))
     .then(view => view.getHtml())
-    .then(truc => document.querySelector('#root').innerHTML = truc) 
+    .then(view => document.querySelector('#root').innerHTML = view);
 
-    // const view = new match.route.view();
-
+    //  const view = new match.route.view();
     // document.querySelector('#root').innerHTML = await view.getHtml();
     // console.log(location.pathname);
 };
