@@ -7,6 +7,8 @@ export default class extends AbstractView {
     }
 
     getHtml() {
-        return ``;
+        return `
+                <div>Bonjour</div>
+        `;
     }
 }

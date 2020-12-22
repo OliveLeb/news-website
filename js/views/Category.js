@@ -1,8 +1,8 @@
 import AbstractView from './AbstractView.js';
 
 export default class extends AbstractView{
-    constructor(articles) {
-        super();
+    constructor(articles,params) {
+        super(params);
         this.setTitle('Home');
         this.articles = articles;
     }
@@ -12,14 +12,23 @@ export default class extends AbstractView{
         for(let i=1; i<10;i++){
             article += `
                 <figure class="article">
+                <a href='/${await this.defineArticleUrl(i)}'>
                 <figcaption>
                     ${this.articles[i].title}
                 </figcaption>
+                </a>
+                 <a href='/${await this.defineArticleUrl(i)}'>
                 <img src=${this.articles[i].urlToImage} alt="" />
+                </a>
                 </figure>
             `
         };
         return article;
+    };
+
+    async defineArticleUrl(index) {
+        const newUrl = this.articles[index].title.replaceAll(' ', '&');
+        return newUrl;
     }
 
     async getHtml(){
@@ -27,16 +36,20 @@ export default class extends AbstractView{
             <section id="categories">
             <section>
             <figure class="headline">
+            <a href='/${await this.defineArticleUrl(0)}'>
                 <img
                 class="headline-img"
                 src=${this.articles[0].urlToImage}
                 alt=""
                 />
+            </a>
+            <a href='/${await this.defineArticleUrl(0)}'>
                 <figcaption>
                 <h1>${this.articles[0].title}</h1>
                 <p>${this.articles[0].description}</p>
-                <p>Par ${this.articles[0].author}</p>
+                ${this.articles[0].author === null ? '' : `<p>Par ${this.articles[0].author}</p>`}
                 </figcaption>
+                </a>
             </figure>
             <section class="article-list-home">
             ${await this.articleListing()}                

@@ -1,31 +1,31 @@
-const FetchData = (category) => {
+const FetchData = () => {
 
-    // const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
     const apiKey = '77d06390c6ab416b8b18815a188f1274';
-    // const url = `${proxyUrl}https://newsapi.org/v2/everything?q=${category}&apiKey=${apiKey}`;
-    const url = `https://newsapi.org/v2/everything?q=${category}&apiKey=${apiKey}`;
-    // const url = `https://newscatcher.p.rapidapi.com/v1/search_free?q=${category}&lang=fr&media=True`;
+    const url1 = `https://newsapi.org/v2/everything?q=tech&language=fr&sortBy=publishedAt&apiKey=${apiKey}`;
+    const url2 = `https://newsapi.org/v2/everything?q=games&language=fr&sortBy=publishedAt&apiKey=${apiKey}`;
 
-    var req = new Request(url);
+    let articles = {
+        tech:[],
+        games:[]
+    };
 
-    return fetch(req/*, {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "45948fca7amshfcfb6de4c279dc4p112dc8jsn780396746731",
-		"x-rapidapi-host": "newscatcher.p.rapidapi.com"
-	}
-    }*/)
-    .then((response) => {
-        if(response.ok) return response.json();
-        else return Promise.reject(response);
+    return Promise.all([
+        fetch(url1),
+        fetch(url2)
+    ])
+    .then((responses)=> {
+        return Promise.all(responses.map((response)=> {
+            return response.json();
+        }))
     })
-    .then(data => {
-        console.log(data);
-        return data.articles;
+    .then(data =>{
+        articles.tech = data[0].articles;
+        articles.games = data[1].articles;
+        return articles;
     })
-    .catch(err => {
-        console.error('Something went wrong.', err);
-    });
+    .catch(err=> console.log(err));
+
+
 
 };
 
