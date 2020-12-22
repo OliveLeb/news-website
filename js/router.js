@@ -68,10 +68,10 @@ const router = async () => {
         if(new Date(a.publishedAt) < new Date(b.publishedAt)) return 1;
     });
 
-    // envoie tout les articles ou seulement les catégories 
-    let truc = match.category === 'all' ? articles : data[match.category];
+    // définie les articles to render selon le component afficher
+    let articlesPerView = match.category === 'all' ? articles : data[match.category];
 
-    const view = new match.route.view(truc, getParams(match));
+    const view = new match.route.view(articlesPerView, getParams(match));
     document.querySelector('#root').innerHTML = await view.getHtml();
 };
 
