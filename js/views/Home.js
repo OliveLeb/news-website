@@ -26,7 +26,7 @@ export default class extends AbstractView{
         return article;
     }
     async defineArticleUrl(index) {
-        const newUrl = this.articles[index].title.replaceAll(' ', '&');
+        const newUrl = this.articles[index].title.replaceAll(' ','&').replaceAll('\'','_');
         return newUrl;
     }
 
@@ -68,51 +68,5 @@ export default class extends AbstractView{
             </aside>
         </section>
         `;
-        // return console.log(this.articles)
     };
 };
-
-/*
-<figure class="article">
-                <figcaption>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </figcaption>
-                <img src="https://via.placeholder.com/100x100" alt="" />
-                </figure>
-                <figure class="article">
-                <figcaption>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </figcaption>
-                <img src="https://via.placeholder.com/100x100" alt="" />
-                </figure>
-                <figure class="article">
-                <figcaption>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </figcaption>
-                <img src="https://via.placeholder.com/100x100" alt="" />
-                </figure>
-                <figure class="article">
-                <figcaption>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </figcaption>
-                <img src="https://via.placeholder.com/100x100" alt="" />
-                </figure>
-                <figure class="article">
-                <figcaption>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </figcaption>
-                <img src="https://via.placeholder.com/100x100" alt="" />
-                </figure>
-                <figure class="article">
-                <figcaption>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </figcaption>
-                <img src="https://via.placeholder.com/100x100" alt="" />
-                </figure>
-*/

@@ -28,7 +28,7 @@ const router = async () => {
         {path:'/', view: Home, category: 'all'},
         {path:'/tech', view: Category, category:'tech'},
         {path:'/jeuxvideo', view: Category, category:'games'},
-        {path:'/:id', view: Article}
+        {path:'/:id', view: Article, category: 'selectedArticle'}
     ];
 
     // Test each routes
@@ -68,8 +68,8 @@ const router = async () => {
         if(new Date(a.publishedAt) < new Date(b.publishedAt)) return 1;
     });
 
-    // définie les articles to render selon le component afficher
-    let articlesPerView = match.category === 'all' ? articles : data[match.category];
+    // définie les articles to render selon le component affiché
+    let articlesPerView = match.category === 'all' /*|| match.category === 'selectedArticle' */? articles : match.category === 'selectedArticle' ? data : data[match.category];
 
     const view = new match.route.view(articlesPerView, getParams(match));
     document.querySelector('#root').innerHTML = await view.getHtml();
