@@ -3,21 +3,21 @@ import AbstractView from './AbstractView.js';
 export default class extends AbstractView {
     constructor(articles,params) {
         super(params);
-        this.setTitle('article');
         this.articleId = params.id;
         this.articles = articles;
         this.currentArticle = this.findArticle();
+        this.setTitle(this.currentArticle.title + ' - Direct News');
         this.category;
         this.suggestMore();
+        
     }
 
 
     findArticle() {
         // reformate url en titre
-        const urlToTitle = this.articleId.replaceAll('&',' ').replaceAll('_','\'');
-
+        const urlToTitle = decodeURI(this.articleId).replaceAll('&&',' ').replaceAll('_','\'').replaceAll('--','/');
         const articles = Object.values(this.articles);
-        const findArticle = articles.map(arr => arr.find(article => article.title === decodeURI(urlToTitle)));
+        const findArticle = articles.map(arr => arr.find(article => article.title === urlToTitle));
 
         // Define the category of the current article
         if(findArticle[0] === undefined) this.category = 'games';
@@ -34,17 +34,24 @@ export default class extends AbstractView {
         for(let i=0;i<4;i++) {
             articlesFig += `
                     <figure>
+                    <a href='/${await this.defineArticleUrl(otherArticles[i])}' >
                     <img src=${otherArticles[i].urlToImage} style='width:100px;height:auto'>
+                    </a>
+                    <a href='/${await this.defineArticleUrl(otherArticles[i])}' >
                     <figcaption>
                     <p>${otherArticles[i].title}</p>
                     </figcaption>
+                    </a>
                     </figure>
             `
         }
         return articlesFig;
     }
 
-
+    async defineArticleUrl(article) {
+        const newUrl = article.title.replaceAll(' ','&&').replaceAll('\'','_').replaceAll('/','--');
+        return newUrl;
+    }
 
     async getHtml() {
         return `

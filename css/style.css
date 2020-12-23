@@ -23,6 +23,7 @@ body {
   --background-main: #fff;
   --background-nav: #ff6c6c;
 }
+
 /******** HEADER *******/
 header {
   max-width: 100vw;
@@ -94,6 +95,7 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 50px;
 }
 .headline-img {
   width: 100%;
@@ -164,6 +166,37 @@ footer {
   .headline figcaption > :last-child {
     display: block;
   }
+  #home,
+  #categories {
+    display: flex;
+    margin: auto;
+    width: 900px;
+    background-color: var(--background-main);
+    padding: 20px 0;
+  }
+  .headline > :last-child h1 {
+    font-size: 22px;
+  }
+  .article-list-home {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .article-list-home .article:nth-child(3n + 1) {
+    border-left: 1px solid #eee;
+  }
+  .article-list-home .article:nth-last-child(-n + 3) {
+    border-bottom: 1px solid #eee;
+  }
+  .article {
+    flex-direction: column-reverse;
+  }
+  .article :first-child {
+    align-self: flex-start;
+  }
+  .article :last-child {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
 }
 
 /***************** DESKTOP ***************/
@@ -218,42 +251,14 @@ footer {
   /**MAIN**/
   #home,
   #categories {
-    display: flex;
-    margin: auto;
     width: 1281px;
-    background-color: var(--background-main);
-    padding: 20px 0;
   }
-  .headline > :last-child h1 {
-    font-size: 22px;
-  }
-
-  section {
+  #home section {
     width: 80%;
     margin: auto;
   }
-  .article-list-home {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .article-list-home .article:nth-child(3n + 1) {
-    border-left: 1px solid #eee;
-  }
-  .article-list-home .article:nth-last-child(-n + 3) {
-    border-bottom: 1px solid #eee;
-  }
-  .article {
-    flex-direction: column-reverse;
-  }
-  .article :first-child {
-    align-self: flex-start;
-  }
-  .article :last-child {
-    margin-bottom: 10px;
-    margin-right: 0;
-  }
   aside {
-    background-color: #f5f5f5;
+    background-color: #f7f7f7;
     width: 20%;
     display: block;
     padding-bottom: 20px;

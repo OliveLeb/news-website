@@ -27,7 +27,7 @@ export default class extends AbstractView{
     };
 
     async defineArticleUrl(index) {
-        const newUrl = this.articles[index].title.replaceAll(' ','&').replaceAll('\'','_');
+        const newUrl = this.articles[index].title.replaceAll(' ','&&').replaceAll('\'','_').replaceAll('/','--');
         return newUrl;
     }
 
